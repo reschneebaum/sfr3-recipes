@@ -38,14 +38,14 @@ struct DetailView: View {
                         HTMLView(html: info.summary)
                         
                         if info.readyInMinutes > 0 {
-                            HStack {
+                            HStack(spacing: 4) {
                                 Text("Ready in:")
                                     .font(.headline)
                                 Text("\(info.readyInMinutes) minutes")
                                 Spacer()
                             }
                         }
-                                                
+                        
                         if !info.displayableIngredients.isEmpty {
                             VStack(alignment: .leading) {
                                 Text("Ingredients:")

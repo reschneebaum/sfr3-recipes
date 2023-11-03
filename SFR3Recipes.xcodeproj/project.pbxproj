@@ -41,6 +41,7 @@
 		C4754CB72AF56A53003ACE34 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CB62AF56A53003ACE34 /* DetailViewModel.swift */; };
 		C4754CBC2AF57725003ACE34 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CBB2AF57725003ACE34 /* SearchViewModelTests.swift */; };
 		C4754CBE2AF58783003ACE34 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CBD2AF58783003ACE34 /* Ingredient.swift */; };
+		C4754CC02AF58D32003ACE34 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C4754CBF2AF58D32003ACE34 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		C4754CB62AF56A53003ACE34 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		C4754CBB2AF57725003ACE34 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
 		C4754CBD2AF58783003ACE34 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		C4754CBF2AF58D32003ACE34 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		C4754C3D2AF310DF003ACE34 = {
 			isa = PBXGroup;
 			children = (
+				C4754CBF2AF58D32003ACE34 /* README.md */,
 				C4754C482AF310DF003ACE34 /* SFR3Recipes */,
 				C4754C5B2AF310E4003ACE34 /* SFR3RecipesTests */,
 				C4754C652AF310E4003ACE34 /* SFR3RecipesUITests */,
@@ -247,8 +250,8 @@
 				C4754C7B2AF3136F003ACE34 /* RecipeInfo.swift */,
 				C4754C7F2AF315CA003ACE34 /* Cuisine.swift */,
 				C4754CA92AF45155003ACE34 /* DishType.swift */,
-				C4754CA72AF44024003ACE34 /* RecipeDisplayable.swift */,
 				C4754CBD2AF58783003ACE34 /* Ingredient.swift */,
+				C4754CA72AF44024003ACE34 /* RecipeDisplayable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4754CC02AF58D32003ACE34 /* README.md in Resources */,
 				C4754C532AF310E4003ACE34 /* Preview Assets.xcassets in Resources */,
 				C4754C9E2AF3FF9B003ACE34 /* recipe-search.json in Resources */,
 				C4754C7E2AF313D6003ACE34 /* recipe-info.json in Resources */,
