@@ -12,9 +12,9 @@ struct DetailView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var favorites: [Recipe]
     
+    @State private var info: RecipeInfo?
     private let recipe: RecipeDisplayable
     private let networkService: NetworkService
-    @State private var info: RecipeInfo?
     
     private var favorite: Recipe? {
         favorites.first
@@ -33,8 +33,8 @@ struct DetailView: View {
                     Text(isFavorite ? "Remove favorite" : "Add to favorites")
                 }
                 
-                if let info {
-                    HTMLView(html: info.summary)
+                if let summary = info?.summary, !summary.isEmpty {
+                    HTMLView(html: summary)
                         .padding()
                 }
                 
@@ -42,22 +42,14 @@ struct DetailView: View {
             }
         }
         .task {
+            guard info == nil else { return }
             if let favorite {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    info = .init(id: favorite.id, title: favorite.title, image: favorite.image, servings: 0, readyInMinutes: 0, sourceName: favorite.sourceName, sourceUrl: favorite.sourceURL, spoonacularSourceUrl: "", cuisines: favorite.cuisines, instructions: favorite.instructions, dishTypes: favorite.dishTypes, summary: favorite.summary)
-                }
+                info = .init(favorite)
             } else {
-                do {
-                    let info = try await networkService.getRecipeInfo(for: recipe.id)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        self.info = info
-                    }
-                } catch {
-                    print(error)
-                }
+                info = try? await networkService.getRecipeInfo(for: recipe.id)
             }
         }
-        .navigationTitle("Recipe details")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     init(recipe: RecipeDisplayable, networkService: NetworkService) {

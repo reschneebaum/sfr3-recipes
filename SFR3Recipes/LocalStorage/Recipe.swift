@@ -17,6 +17,8 @@ final class Recipe {
     var instructions: String
     var sourceName: String
     var sourceURL: String
+    var servings: Int = 1
+    var readyInMinutes: Int = 0
     var cuisines: [Cuisine]
     var dishTypes: [DishType]
     
@@ -28,6 +30,8 @@ final class Recipe {
         instructions = info.instructions
         sourceName = info.sourceName
         sourceURL = info.sourceUrl
+        servings = info.servings
+        readyInMinutes = info.readyInMinutes
         cuisines = info.cuisines
         dishTypes = info.dishTypes
     }

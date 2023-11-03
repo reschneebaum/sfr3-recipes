@@ -14,15 +14,20 @@ final class SearchService {
     var searchString = ""
     var currentPage = 0
     var currentIndex: Int?
-    var limit: Int
+    let limit: Int
     let fetchOffset: Int
     var results: [SearchResult] = []
-    var error: Error?
+    var error: NetworkError?
     
+    /// Index of `results.last`
     var lastIndex: Int {
-        currentPage * limit
+        (currentPage + 1) * limit
     }
     
+    /// - parameter networkService: NetworkService (defaults to newly initialized service)
+    /// - parameter limit: the (max) number of search results to fetch per page (defaults to 10).
+    /// - parameter fetchOffset: the index  at which to fetch a new page of results (defaults to 2) —
+    /// e.g., with a `fetchOffset` of 2, a new page will be fetched when the current index is 2 from the end.
     init(networkService: NetworkService = .init(), limit: Int = 10, fetchOffset: Int = 2) {
         self.networkService = networkService
         self.limit = limit
@@ -54,7 +59,8 @@ final class SearchService {
     }
     
     func onIndexChanged(_ oldValue: Int?, _ newValue: Int?) {
-        guard let newValue,
+        guard results.count >= limit,
+              let newValue,
               newValue > (oldValue ?? 0),
               newValue == lastIndex - fetchOffset else { return }
         getNextPage()
@@ -75,7 +81,7 @@ final class SearchService {
             error = nil
         } catch {
             results = []
-            self.error = error
+            self.error = error as? NetworkError
         }
     }
 }

@@ -9,14 +9,26 @@ import SwiftUI
 
 struct HTMLView: View {
     let html: String
+    @State private var attributedString: AttributedString?
     
     var body: some View {
-        if let nsAttributedString = try? NSAttributedString(
-            data: .init(html.utf8),
-            options: [.documentType: NSAttributedString.DocumentType.html],
-            documentAttributes: nil
-        ), let attributedString = try? AttributedString(nsAttributedString, including: \.uiKit) {
-            Text(attributedString)
+        VStack {
+            if let attributedString {
+                Text(attributedString)
+            }
+        }
+        .onAppear {
+            // html -> attributed string conversion *must* be done on main thread
+            // to prevent attribute graph warnings.
+            DispatchQueue.main.async {
+                if let nsAttributedString = try? NSAttributedString(
+                    data: .init(html.utf8),
+                    options: [.documentType: NSAttributedString.DocumentType.html],
+                    documentAttributes: nil
+                ), let attributedString = try? AttributedString(nsAttributedString, including: \.uiKit) {
+                    self.attributedString = attributedString
+                }
+            }
         }
     }
 }

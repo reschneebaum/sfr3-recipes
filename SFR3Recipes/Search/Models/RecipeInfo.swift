@@ -38,3 +38,20 @@ struct RecipeInfo: Codable {
     var dishTypes: [DishType]
     var summary: String
 }
+
+extension RecipeInfo {
+    init(_ recipe: Recipe) {
+        id = recipe.id
+        title = recipe.title
+        image = recipe.image
+        servings = 0
+        readyInMinutes = 0
+        sourceName = recipe.sourceName
+        sourceUrl = recipe.sourceURL
+        spoonacularSourceUrl = ""
+        cuisines = recipe.cuisines
+        instructions = recipe.instructions
+        dishTypes = recipe.dishTypes
+        summary = recipe.summary
+    }
+}
