@@ -8,16 +8,16 @@
 import Foundation
 
 struct SearchResults: Codable {
-    var offset: Int
-    var number: Int
-    var results: [SearchResult]
-    var totalResults: Int
+    let offset: Int
+    let number: Int
+    let results: [SearchResult]
+    let totalResults: Int
 }
 
-struct SearchResult {
-    var id: Int
-    var title: String
-    var imageURLString: String
+struct SearchResult: Identifiable {
+    let id: Int
+    let title: String
+    let imageURLString: String
 }
 
 extension SearchResult: Codable {

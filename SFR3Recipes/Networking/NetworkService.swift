@@ -16,8 +16,8 @@ final class NetworkService: HTTPClient {
         self.urlSession = urlSession
     }
     
-    func search(by searchString: String) async throws -> SearchResults {
-        try await request(.search(searchString))
+    func search(by searchString: String, numberOfResults: Int = 20, offset: Int = 0) async throws -> SearchResults {
+        try await request(.search(searchString, number: numberOfResults, offset: offset))
     }
     
     func getRecipeInfo(for id: Int) async throws -> RecipeInfo {

@@ -8,7 +8,7 @@
 import Foundation
 
 enum SpoonacularEndpoint: Endpoint {
-    case search(String)
+    case search(String, number: Int, offset: Int)
     case getInfo(Int)
     
     var scheme: String {
@@ -30,17 +30,19 @@ enum SpoonacularEndpoint: Endpoint {
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .search, .getInfo:
-                .get
+        case .search, .getInfo: .get
         }
     }
     
     var queryItems: [URLQueryItem]? {
         switch self {
-        case .search(let searchString):
-            [.init(name: "query", value: searchString)]
-        case .getInfo:
-            nil
+        case let .search(searchString, number, offset):
+            [
+                .init(name: "query", value: searchString),
+                .init(name: "number", value: "\(number)"),
+                .init(name: "offset", value: "\(offset)")
+            ]
+        case .getInfo: nil
         }
     }
     

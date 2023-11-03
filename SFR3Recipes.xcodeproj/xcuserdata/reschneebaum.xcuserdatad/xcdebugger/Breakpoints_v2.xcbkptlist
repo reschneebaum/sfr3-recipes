@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "63DAA2B9-EE88-4B6D-BE8F-EB622458BB8C"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CB1F7802-68B4-4792-A4D1-9746F6E12F57"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SFR3Recipes/Services/SearchService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "getPage(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CB1F7802-68B4-4792-A4D1-9746F6E12F57 - 114e5aa8ca66055b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for SFR3Recipes.SearchService.getPage(Swift.Int) async -&gt; ()"
+                  moduleName = "SFR3Recipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reschneebaum/Developer/SFR3Recipes/SFR3Recipes/Services/SearchService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "CB1F7802-68B4-4792-A4D1-9746F6E12F57 - d6ff8bbae7116a75"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for SFR3Recipes.SearchService.getPage(Swift.Int) async -&gt; ()"
+                  moduleName = "SFR3Recipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reschneebaum/Developer/SFR3Recipes/SFR3Recipes/Services/SearchService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "CB1F7802-68B4-4792-A4D1-9746F6E12F57 - e0d85d6186b38d5f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for SFR3Recipes.SearchService.getPage(Swift.Int) async -&gt; ()"
+                  moduleName = "SFR3Recipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reschneebaum/Developer/SFR3Recipes/SFR3Recipes/Services/SearchService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "CB1F7802-68B4-4792-A4D1-9746F6E12F57 - 9813a102dceac951"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for SFR3Recipes.SearchService.getPage(Swift.Int) async -&gt; ()"
+                  moduleName = "SFR3Recipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reschneebaum/Developer/SFR3Recipes/SFR3Recipes/Services/SearchService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

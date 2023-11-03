@@ -10,12 +10,9 @@ import SwiftData
 
 @main
 struct SFR3RecipesApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
+    private var sharedModelContainer: ModelContainer = {
+        let schema = Schema([Recipe.self])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
@@ -25,7 +22,7 @@ struct SFR3RecipesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContainerView()
         }
         .modelContainer(sharedModelContainer)
     }

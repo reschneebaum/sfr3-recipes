@@ -9,7 +9,6 @@ import Foundation
 
 public protocol NetworkSession {
     func data(for request: URLRequest, delegate: URLSessionTaskDelegate?) async throws -> (Data, URLResponse)
-    func data(from url: URL) async throws -> (Data, URLResponse)
 }
 
 public extension NetworkSession {
