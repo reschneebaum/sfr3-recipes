@@ -33,6 +33,7 @@ struct SearchView: View {
             placement: .navigationBarDrawer(displayMode: .always)
         )
         .onSubmit(of: .search, viewModel.search)
+        .onChange(of: viewModel.searchString, viewModel.cancelSearch)
         .onChange(of: viewModel.currentIndex, viewModel.onIndexChanged)
         .alert(isPresented: viewModel.showAlert, error: viewModel.error) {}
         .navigationTitle("Recipe search")

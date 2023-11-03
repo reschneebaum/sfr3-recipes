@@ -50,6 +50,12 @@ final class SearchViewModel {
         }
     }
     
+    func cancelSearch() {
+        guard searchString.isEmpty else { return }
+        results = []
+        error = nil
+    }
+    
     func index(of item: SearchResult) -> Int? {
         results.firstIndex { $0.id == item.id }
     }

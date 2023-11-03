@@ -13,11 +13,9 @@ Other than updating code signing, the app should build and run without any addit
 
 ### Behavior
 The app has two tabs, 'Search' and 'My recipes', both of which display a list of recipe titles + images:
-  - The 'Search' tab triggers a keyword search on submit and displays the results
+  - The 'Search' tab triggers a keyword search on submit and displays the results. Upon scrolling to the penultimate list item, the app will attempt to fetch the next page of results and continue scrolling
 
     ![Simulator Screenshot - iPhone 14 - 2023-11-03 at 16 49 36](https://github.com/reschneebaum/sfr3-recipes/assets/13072781/5929f6e1-a754-413f-99ce-549b84436018) ![Simulator Screenshot - iPhone 14 - 2023-11-03 at 16 48 52](https://github.com/reschneebaum/sfr3-recipes/assets/13072781/7de9bf03-694a-473c-912e-b013b01ff7ed)
-
-    - On scrolling to the penultimate list item, it will attempt to fetch the next page of results and continue scrolling
    
   - The 'My recipes' tab displays any recipes that have been saved to local storage (using SwiftData for local storage management)
     
