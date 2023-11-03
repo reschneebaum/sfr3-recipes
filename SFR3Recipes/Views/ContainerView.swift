@@ -39,19 +39,19 @@ enum Tab {
 
 struct ContainerView: View {
     @Environment(\.modelContext) private var modelContext
-    @Bindable var searchService: SearchService = .init()
+    let networkService: NetworkService
     
     var body: some View {
         TabView {
             NavigationStack {
-                SearchView(searchService: searchService)
+                SearchView(viewModel: .init(networkService: networkService))
             }
             .tabItem {
                 Tab.search.tabItem
             }
             
             NavigationStack {
-                FavoritesView(networkService: searchService.networkService)
+                FavoritesView(networkService: networkService)
             }
             .tabItem {
                 Tab.favorites.tabItem
@@ -61,6 +61,6 @@ struct ContainerView: View {
 }
 
 #Preview {
-    ContainerView(searchService: .init(networkService: .init(urlSession: MockNetworkSession())))
+    ContainerView(networkService: .init(urlSession: MockNetworkSession()))
         .modelContainer(for: Recipe.self, inMemory: true)
 }

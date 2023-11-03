@@ -19,10 +19,4 @@ extension Recipe: RecipeDisplayable {
     }
 }
 
-extension RecipeInfo: RecipeDisplayable {
-    var imageURLString: String {
-        image
-    }
-}
-
 extension SearchResult: RecipeDisplayable {}

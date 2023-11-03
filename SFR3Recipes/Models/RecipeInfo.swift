@@ -10,7 +10,7 @@ import Foundation
 struct RecipeInfo: Codable {
     let id: Int
     let title: String
-    var image: String
+    let image: String
     var servings: Int
     var readyInMinutes: Int
     var license: String?
@@ -44,8 +44,8 @@ extension RecipeInfo {
         id = recipe.id
         title = recipe.title
         image = recipe.image
-        servings = 0
-        readyInMinutes = 0
+        servings = recipe.servings
+        readyInMinutes = recipe.readyInMinutes
         sourceName = recipe.sourceName
         sourceUrl = recipe.sourceURL
         spoonacularSourceUrl = ""

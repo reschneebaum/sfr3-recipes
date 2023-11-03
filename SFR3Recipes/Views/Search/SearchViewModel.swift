@@ -1,15 +1,15 @@
 //
-//  SearchService.swift
+//  SearchViewModel.swift
 //  SFR3Recipes
 //
 //  Created by Rachel Schneebaum on 11/2/23.
 //
 
-import Foundation
+import SwiftUI
 import Combine
 
 @Observable
-final class SearchService {
+final class SearchViewModel {
     let networkService: NetworkService
     var searchString = ""
     var currentPage = 0
@@ -18,6 +18,15 @@ final class SearchService {
     let fetchOffset: Int
     var results: [SearchResult] = []
     var error: NetworkError?
+    var showAlert: Binding<Bool> {
+        .init {
+            self.error != nil
+        } set: {
+            if !$0 {
+                self.error = nil
+            }
+        }
+    }
     
     /// Index of `results.last`
     var lastIndex: Int {
@@ -34,24 +43,11 @@ final class SearchService {
         self.fetchOffset = fetchOffset
     }
     
-    func getFirstPage() {
+    func search() {
+        guard !searchString.isEmpty else { return }
         Task {
             await getFirstPage()
         }
-    }
-    
-    func getFirstPage() async {
-        await getPage(0)
-    }
-    
-    func getNextPage() {
-        Task {
-            await getNextPage()
-        }
-    }
-    
-    func getNextPage() async {
-        await getPage(currentPage + 1)
     }
     
     func index(of item: SearchResult) -> Int? {
@@ -63,10 +59,22 @@ final class SearchService {
               let newValue,
               newValue > (oldValue ?? 0),
               newValue == lastIndex - fetchOffset else { return }
-        getNextPage()
+        Task {
+            await getNextPage()
+        }
+    }
+}
+
+private extension SearchViewModel {
+    func getFirstPage() async {
+        await getPage(0)
     }
     
-    private func getPage(_ page: Int) async {
+    func getNextPage() async {
+        await getPage(currentPage + 1)
+    }
+    
+    func getPage(_ page: Int) async {
         do {
             let newResults = try await networkService.search(by: searchString, numberOfResults: limit, offset: page * limit).results
             guard !newResults.isEmpty else { return }

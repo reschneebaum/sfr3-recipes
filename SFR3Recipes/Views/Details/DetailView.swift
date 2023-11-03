@@ -11,10 +11,7 @@ import SwiftData
 struct DetailView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var favorites: [Recipe]
-    
-    @State private var info: RecipeInfo?
-    private let recipe: RecipeDisplayable
-    private let networkService: NetworkService
+    @Bindable var viewModel: DetailViewModel
     
     private var favorite: Recipe? {
         favorites.first
@@ -26,15 +23,17 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                RecipeCard(recipe: recipe)
+                RecipeCard(recipe: viewModel.recipe)
                 
-                Button(action: toggleFavorite) {
+                Button {
+                    viewModel.toggleFavorite(favorite, in: modelContext)
+                } label: {
                     Image(systemName: isFavorite ? "star.fill" : "star")
                     Text(isFavorite ? "Remove favorite" : "Add to favorites")
                 }
                 
-                if let summary = info?.summary, !summary.isEmpty {
-                    HTMLView(html: summary)
+                if let info = viewModel.info {
+                    HTMLView(html: info.summary)
                         .padding()
                 }
                 
@@ -42,31 +41,17 @@ struct DetailView: View {
             }
         }
         .task {
-            guard info == nil else { return }
-            if let favorite {
-                info = .init(favorite)
-            } else {
-                info = try? await networkService.getRecipeInfo(for: recipe.id)
-            }
+            await viewModel.getRecipeInfo(for: favorite)
         }
+        .alert(isPresented: viewModel.showAlert, error: viewModel.error) {}
         .navigationBarTitleDisplayMode(.inline)
     }
     
     init(recipe: RecipeDisplayable, networkService: NetworkService) {
-        self.recipe = recipe
-        self.networkService = networkService
+        viewModel = .init(recipe: recipe, networkService: networkService)
                 
         let id = recipe.id
         _favorites = Query(filter: #Predicate { $0.id == id }, sort: [SortDescriptor(\Recipe.title)])
-    }
-    
-    func toggleFavorite() {
-        if let favorite {
-            modelContext.delete(favorite)
-        } else if let info {
-            let newFavorite = Recipe(info: info)
-            try? newFavorite.save(in: modelContext)
-        }
     }
 }
 

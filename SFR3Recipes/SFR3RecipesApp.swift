@@ -22,7 +22,7 @@ struct SFR3RecipesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContainerView()
+            ContainerView(networkService: .init())
         }
         .modelContainer(sharedModelContainer)
     }

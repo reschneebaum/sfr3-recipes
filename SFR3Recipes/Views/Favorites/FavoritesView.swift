@@ -26,11 +26,6 @@ struct FavoritesView: View {
                         }
                     }
                 }
-                .onDelete { indexSet in
-                    for index in indexSet {
-                        modelContext.delete(recipes[index])
-                    }
-                }
             }
         }
         .navigationTitle("My recipes")
