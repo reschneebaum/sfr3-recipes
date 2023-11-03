@@ -20,6 +20,7 @@ The app has two tabs, 'Search' and 'My recipes', both of which display a list of
     - On scrolling to the penultimate list item, it will attempt to fetch the next page of results and continue scrolling
    
   - The 'My recipes' tab displays any recipes that have been saved to local storage (using SwiftData for local storage management)
+    
     ![Simulator Screenshot - iPhone 14 - 2023-11-03 at 16 49 43](https://github.com/reschneebaum/sfr3-recipes/assets/13072781/03b2f90b-1453-4a55-ac90-d227dbea4013)
 
   - Tapping a list item (from either tab) will navigate to the recipe detail view, where the recipe can be added to or removed from the list of favorites (i.e., recipes stored in SwiftData)
