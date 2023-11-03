@@ -19,8 +19,9 @@ final class Recipe {
     var sourceURL: String
     var servings: Int = 1
     var readyInMinutes: Int = 0
-    var cuisines: [Cuisine]
-    var dishTypes: [DishType]
+    var cuisines: [Cuisine] = []
+    var dishTypes: [DishType] = []
+    var ingredients: [Ingredient] = []
     
     init(info: RecipeInfo) {
         id = info.id
@@ -34,6 +35,7 @@ final class Recipe {
         readyInMinutes = info.readyInMinutes
         cuisines = info.cuisines
         dishTypes = info.dishTypes
+        ingredients = info.extendedIngredients
     }
 }
 

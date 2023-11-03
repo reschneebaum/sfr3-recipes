@@ -35,7 +35,7 @@ struct SearchView: View {
         .onSubmit(of: .search, viewModel.search)
         .onChange(of: viewModel.currentIndex, viewModel.onIndexChanged)
         .alert(isPresented: viewModel.showAlert, error: viewModel.error) {}
-        .navigationTitle("Recipe Search")
+        .navigationTitle("Recipe search")
     }
 }
 

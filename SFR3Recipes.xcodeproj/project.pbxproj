@@ -39,6 +39,8 @@
 		C4754CB12AF46B3B003ACE34 /* HTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CB02AF46B3B003ACE34 /* HTMLView.swift */; };
 		C4754CB32AF567E6003ACE34 /* MockFailingNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CB22AF567E6003ACE34 /* MockFailingNetworkSession.swift */; };
 		C4754CB72AF56A53003ACE34 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CB62AF56A53003ACE34 /* DetailViewModel.swift */; };
+		C4754CBC2AF57725003ACE34 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CBB2AF57725003ACE34 /* SearchViewModelTests.swift */; };
+		C4754CBE2AF58783003ACE34 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CBD2AF58783003ACE34 /* Ingredient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		C4754CB02AF46B3B003ACE34 /* HTMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLView.swift; sourceTree = "<group>"; };
 		C4754CB22AF567E6003ACE34 /* MockFailingNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFailingNetworkSession.swift; sourceTree = "<group>"; };
 		C4754CB62AF56A53003ACE34 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		C4754CBB2AF57725003ACE34 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
+		C4754CBD2AF58783003ACE34 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				C4754C5C2AF310E4003ACE34 /* NetworkServiceTests.swift */,
+				C4754CBB2AF57725003ACE34 /* SearchViewModelTests.swift */,
 			);
 			path = SFR3RecipesTests;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				C4754C7F2AF315CA003ACE34 /* Cuisine.swift */,
 				C4754CA92AF45155003ACE34 /* DishType.swift */,
 				C4754CA72AF44024003ACE34 /* RecipeDisplayable.swift */,
+				C4754CBD2AF58783003ACE34 /* Ingredient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 				C4754C852AF3F496003ACE34 /* HTTPClient.swift in Sources */,
 				C4754C4A2AF310DF003ACE34 /* SFR3RecipesApp.swift in Sources */,
 				C4754C942AF3F826003ACE34 /* ContainerView.swift in Sources */,
+				C4754CBE2AF58783003ACE34 /* Ingredient.swift in Sources */,
 				C4754C9A2AF3FAFE003ACE34 /* SearchViewModel.swift in Sources */,
 				C4754C782AF311AF003ACE34 /* Recipe.swift in Sources */,
 				C4754C872AF3F4A8003ACE34 /* HTTPMethod.swift in Sources */,
@@ -446,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4754CBC2AF57725003ACE34 /* SearchViewModelTests.swift in Sources */,
 				C4754C5D2AF310E4003ACE34 /* NetworkServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

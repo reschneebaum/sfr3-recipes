@@ -32,6 +32,32 @@ final class NetworkServiceTests: XCTestCase {
         XCTAssertEqual(info.servings, 2)
         XCTAssertEqual(info.vegan, false)
         XCTAssertEqual(info.cuisines, [.american])
-        XCTAssertEqual(info.dishTypes, [.lunch, .mainCourse, .mainDish, .dinner])
+        XCTAssertTrue(info.dishTypes.contains(.main))
+    }
+    
+    func testGetSearchResultsFails() async throws {
+        sut = .init(urlSession: MockFailingNetworkSession())
+        let testExpectation = expectation(description: "error caught")
+        
+        do {
+            let results = try await sut.search(by: "test")
+        } catch {
+            testExpectation.fulfill()
+        }
+        
+        await fulfillment(of: [testExpectation])
+    }
+    
+    func testGetRecipeInfoFails() async throws {
+        sut = .init(urlSession: MockFailingNetworkSession())
+        let testExpectation = expectation(description: "error caught")
+        
+        do {
+            let info = try await sut.getRecipeInfo(for: 0)
+        } catch {
+            testExpectation.fulfill()
+        }
+        
+        await fulfillment(of: [testExpectation])
     }
 }

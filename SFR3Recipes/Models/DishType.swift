@@ -92,3 +92,9 @@ enum DishType: RawRepresentable, Codable {
         }
     }
 }
+
+extension DishType: Equatable {
+    static func ==(lhs: DishType, rhs: DishType) -> Bool {
+        lhs.rawValue == rhs.rawValue
+    }
+}

@@ -63,9 +63,7 @@ final class SearchViewModel {
             await getNextPage()
         }
     }
-}
-
-private extension SearchViewModel {
+    
     func getFirstPage() async {
         await getPage(0)
     }
@@ -73,7 +71,9 @@ private extension SearchViewModel {
     func getNextPage() async {
         await getPage(currentPage + 1)
     }
-    
+}
+
+private extension SearchViewModel {
     func getPage(_ page: Int) async {
         do {
             let newResults = try await networkService.search(by: searchString, numberOfResults: limit, offset: page * limit).results

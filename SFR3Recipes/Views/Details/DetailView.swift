@@ -22,8 +22,9 @@ struct DetailView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(spacing: 8) {
                 RecipeCard(recipe: viewModel.recipe)
+                    .font(.title)
                 
                 Button {
                     viewModel.toggleFavorite(favorite, in: modelContext)
@@ -33,8 +34,35 @@ struct DetailView: View {
                 }
                 
                 if let info = viewModel.info {
-                    HTMLView(html: info.summary)
-                        .padding()
+                    VStack(alignment: .leading, spacing: 8) {
+                        HTMLView(html: info.summary)
+                        
+                        if info.readyInMinutes > 0 {
+                            HStack {
+                                Text("Ready in:")
+                                    .font(.headline)
+                                Text("\(info.readyInMinutes) minutes")
+                                Spacer()
+                            }
+                        }
+                                                
+                        if !info.displayableIngredients.isEmpty {
+                            VStack(alignment: .leading) {
+                                Text("Ingredients:")
+                                    .font(.headline)
+                                Text(info.displayableIngredients)
+                            }
+                        }
+                        
+                        if !info.instructions.isEmpty {
+                            VStack(alignment: .leading) {
+                                Text("Instructions:")
+                                    .font(.headline)
+                                HTMLView(html: info.instructions)
+                            }
+                        }
+                    }
+                    .padding(.horizontal)
                 }
                 
                 Spacer()

@@ -37,9 +37,14 @@ struct RecipeInfo: Codable {
     var weightWatcherSmartPoints: Int?
     var dishTypes: [DishType]
     var summary: String
+    var extendedIngredients: [Ingredient]
 }
 
 extension RecipeInfo {
+    var displayableIngredients: String {
+        extendedIngredients.map { "• \($0.original)" }.joined(separator: "\n")
+    }
+    
     init(_ recipe: Recipe) {
         id = recipe.id
         title = recipe.title
@@ -53,5 +58,6 @@ extension RecipeInfo {
         instructions = recipe.instructions
         dishTypes = recipe.dishTypes
         summary = recipe.summary
+        extendedIngredients = recipe.ingredients
     }
 }
