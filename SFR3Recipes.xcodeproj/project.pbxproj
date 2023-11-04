@@ -42,6 +42,7 @@
 		C4754CBC2AF57725003ACE34 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CBB2AF57725003ACE34 /* SearchViewModelTests.swift */; };
 		C4754CBE2AF58783003ACE34 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CBD2AF58783003ACE34 /* Ingredient.swift */; };
 		C4754CC02AF58D32003ACE34 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C4754CBF2AF58D32003ACE34 /* README.md */; };
+		C4754CC22AF6D086003ACE34 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CC12AF6D086003ACE34 /* Tab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		C4754CBB2AF57725003ACE34 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
 		C4754CBD2AF58783003ACE34 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		C4754CBF2AF58D32003ACE34 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C4754CC12AF6D086003ACE34 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +192,7 @@
 		C4754C762AF31192003ACE34 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C4754C932AF3F826003ACE34 /* ContainerView.swift */,
+				C4754CC32AF6D4F5003ACE34 /* TabView */,
 				C4754CB42AF56836003ACE34 /* Search */,
 				C4754CBA2AF56F4C003ACE34 /* Favorites */,
 				C4754CB52AF56A43003ACE34 /* Details */,
@@ -289,6 +291,15 @@
 				C4754C972AF3FA17003ACE34 /* FavoritesView.swift */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		C4754CC32AF6D4F5003ACE34 /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				C4754C932AF3F826003ACE34 /* ContainerView.swift */,
+				C4754CC12AF6D086003ACE34 /* Tab.swift */,
+			);
+			path = TabView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,6 +459,7 @@
 				C4754CB12AF46B3B003ACE34 /* HTMLView.swift in Sources */,
 				C4754CA62AF425FC003ACE34 /* RecipeCard.swift in Sources */,
 				C4754C8B2AF3F4D4003ACE34 /* NetworkSession.swift in Sources */,
+				C4754CC22AF6D086003ACE34 /* Tab.swift in Sources */,
 				C4754C892AF3F4BA003ACE34 /* NetworkError.swift in Sources */,
 				C4754C7C2AF3136F003ACE34 /* RecipeInfo.swift in Sources */,
 			);

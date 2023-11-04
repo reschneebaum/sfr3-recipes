@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    @Bindable var viewModel: SearchViewModel = .init()
+    @Bindable var viewModel: SearchViewModel
     
     var body: some View {
         ScrollView {
@@ -17,10 +17,7 @@ struct SearchView: View {
                     NavigationLink {
                         DetailView(recipe: result, networkService: viewModel.networkService)
                     } label: {
-                        VStack {
-                            RecipeCard(recipe: result)
-                            Color.gray.frame(height: 1)
-                        }
+                        RecipeCard(recipe: result)
                     }
                     .id(viewModel.index(of: result))
                 }
@@ -33,10 +30,9 @@ struct SearchView: View {
             placement: .navigationBarDrawer(displayMode: .always)
         )
         .onSubmit(of: .search, viewModel.search)
-        .onChange(of: viewModel.searchString, viewModel.cancelSearch)
+        .onChange(of: viewModel.searchString, viewModel.cancelSearchIfEmpty)
         .onChange(of: viewModel.currentIndex, viewModel.onIndexChanged)
         .alert(isPresented: viewModel.showAlert, error: viewModel.error) {}
-        .navigationTitle("Recipe search")
     }
 }
 
@@ -47,6 +43,7 @@ struct SearchView: View {
                 networkService: .init(urlSession: MockNetworkSession())
             )
         )
+        .navigationTitle("Recipe search")
     }
     .modelContainer(for: Recipe.self, inMemory: true)
 }

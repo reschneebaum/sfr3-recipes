@@ -20,21 +20,18 @@ struct FavoritesView: View {
                     NavigationLink {
                         DetailView(recipe: recipe, networkService: networkService)
                     } label: {
-                        VStack {
-                            RecipeCard(recipe: recipe)
-                            Color.gray.frame(height: 1)
-                        }
+                        RecipeCard(recipe: recipe)
                     }
                 }
             }
         }
-        .navigationTitle("My recipes")
     }
 }
 
 #Preview {
     NavigationStack {
         FavoritesView(networkService: .init(urlSession: MockNetworkSession()))
+            .navigationTitle("My recipes")
     }
     .modelContainer(for: Recipe.self, inMemory: true)
 }

@@ -22,7 +22,7 @@ struct DetailView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 8) {
+            VStack(alignment: .leading, spacing: 12) {
                 RecipeCard(recipe: viewModel.recipe)
                     .font(.title)
                 
@@ -32,37 +32,11 @@ struct DetailView: View {
                     Image(systemName: isFavorite ? "star.fill" : "star")
                     Text(isFavorite ? "Remove favorite" : "Add to favorites")
                 }
+                .font(.system(.headline, design: .rounded, weight: .bold))
+                .padding(.horizontal, 24)
                 
                 if let info = viewModel.info {
-                    VStack(alignment: .leading, spacing: 8) {
-                        HTMLView(html: info.summary)
-                        
-                        if info.readyInMinutes > 0 {
-                            HStack(spacing: 4) {
-                                Text("Ready in:")
-                                    .font(.headline)
-                                Text("\(info.readyInMinutes) minutes")
-                                Spacer()
-                            }
-                        }
-                        
-                        if !info.displayableIngredients.isEmpty {
-                            VStack(alignment: .leading) {
-                                Text("Ingredients:")
-                                    .font(.headline)
-                                Text(info.displayableIngredients)
-                            }
-                        }
-                        
-                        if !info.instructions.isEmpty {
-                            VStack(alignment: .leading) {
-                                Text("Instructions:")
-                                    .font(.headline)
-                                HTMLView(html: info.instructions)
-                            }
-                        }
-                    }
-                    .padding(.horizontal)
+                    additionalInfoView(info)
                 }
                 
                 Spacer()
@@ -75,11 +49,53 @@ struct DetailView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
     
-    init(recipe: RecipeDisplayable, networkService: NetworkService) {
+    // MARK: Init
+    
+    init(recipe: any RecipeDisplayable, networkService: NetworkService) {
         viewModel = .init(recipe: recipe, networkService: networkService)
                 
         let id = recipe.id
         _favorites = Query(filter: #Predicate { $0.id == id }, sort: [SortDescriptor(\Recipe.title)])
+    }
+}
+
+// MARK: Subviews
+
+private extension DetailView {
+    func additionalInfoView(_ info: RecipeInfo) -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HTMLView(html: info.summary)
+            
+            Rectangle()
+                .fill(.accent)
+                .frame(height: 0.6)
+            
+            if info.readyInMinutes > 0 {
+                HStack(spacing: 4) {
+                    Text("Ready in:")
+                        .font(.system(.headline, weight: .bold))
+                    Text("\(info.readyInMinutes) minutes")
+                    Spacer()
+                }
+            }
+            
+            if !info.displayableIngredients.isEmpty {
+                VStack(alignment: .leading) {
+                    Text("Ingredients:")
+                        .font(.system(.headline, weight: .bold))
+                    Text(info.displayableIngredients)
+                }
+            }
+            
+            if !info.instructions.isEmpty {
+                VStack(alignment: .leading) {
+                    Text("Instructions:")
+                        .font(.system(.headline, weight: .bold))
+                    HTMLView(html: info.instructions)
+                }
+            }
+        }
+        .padding(.horizontal)
     }
 }
 
@@ -89,7 +105,7 @@ struct DetailView: View {
             recipe: SearchResult(
                 id: 0,
                 title: "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
-                imageURLString: "https://spoonacular.com/recipeImages/716429-312x231.jpg"
+                image: "https://spoonacular.com/recipeImages/716429-312x231.jpg"
             ),
             networkService: .init(urlSession: MockNetworkSession())
         )

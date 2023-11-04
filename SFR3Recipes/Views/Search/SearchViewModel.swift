@@ -50,7 +50,7 @@ final class SearchViewModel {
         }
     }
     
-    func cancelSearch() {
+    func cancelSearchIfEmpty() {
         guard searchString.isEmpty else { return }
         results = []
         error = nil

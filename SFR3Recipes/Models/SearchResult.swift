@@ -14,15 +14,8 @@ struct SearchResults: Codable {
     let totalResults: Int
 }
 
-struct SearchResult: Identifiable {
+struct SearchResult: Identifiable, Codable {
     let id: Int
     let title: String
-    let imageURLString: String
-}
-
-extension SearchResult: Codable {
-    enum CodingKeys: String, CodingKey {
-        case id, title
-        case imageURLString = "image"
-    }
+    let image: String
 }

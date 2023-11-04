@@ -7,16 +7,11 @@
 
 import Foundation
 
-protocol RecipeDisplayable {
+protocol RecipeDisplayable: Identifiable {
     var title: String { get }
-    var imageURLString: String { get }
+    var image: String { get }
     var id: Int { get }
 }
 
-extension Recipe: RecipeDisplayable {
-    var imageURLString: String {
-        image
-    }
-}
-
+extension Recipe: RecipeDisplayable {}
 extension SearchResult: RecipeDisplayable {}

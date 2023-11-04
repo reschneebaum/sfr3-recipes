@@ -25,7 +25,19 @@ struct HTMLView: View {
                     data: .init(html.utf8),
                     options: [.documentType: NSAttributedString.DocumentType.html],
                     documentAttributes: nil
-                ), let attributedString = try? AttributedString(nsAttributedString, including: \.uiKit) {
+                ), var attributedString = try? AttributedString(nsAttributedString, including: \.uiKit) {
+                    for run in attributedString.runs {
+                        var container = AttributeContainer()
+                        // Set custom link + non-link font styles to handle light/dark modes
+                        if run.link != nil {
+                            container.foregroundColor = .accentColor
+                            container.font = .system(.body, design: .rounded, weight: .semibold)
+                        } else {
+                            container.foregroundColor = .defaultText
+                        }
+                        attributedString[run.range].setAttributes(container)
+                    }
+                    
                     self.attributedString = attributedString
                 }
             }

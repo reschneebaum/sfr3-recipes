@@ -10,7 +10,7 @@ import SwiftData
 
 @Observable
 final class DetailViewModel {
-    let recipe: RecipeDisplayable
+    let recipe: any RecipeDisplayable
     let networkService: NetworkService
     var info: RecipeInfo?
     var error: NetworkError?
@@ -24,7 +24,7 @@ final class DetailViewModel {
         }
     }
     
-    init(recipe: RecipeDisplayable, networkService: NetworkService) {
+    init(recipe: any RecipeDisplayable, networkService: NetworkService) {
         self.recipe = recipe
         self.networkService = networkService
     }

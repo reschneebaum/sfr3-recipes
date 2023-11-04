@@ -8,21 +8,35 @@
 import SwiftUI
 
 struct RecipeCard: View {
-    let recipe: RecipeDisplayable
+    let recipe: any RecipeDisplayable
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(recipe.title)
-            AsyncImage(url: .init(string: recipe.imageURLString)) { image in
+        VStack {
+            AsyncImage(url: .init(string: recipe.image)) { image in
                 image
                     .interpolation(.medium)
                     .resizable()
                     .scaledToFit()
             } placeholder: {
                 ProgressView()
+                    .tint(.white)
+            }
+            
+            HStack {
+                Text(recipe.title)
+                    .multilineTextAlignment(.leading)
+                    .fontDesign(.rounded)
+                    .fontWeight(.semibold)
+                Spacer()
             }
         }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(.accent)
+        )
         .padding(.horizontal)
+        .foregroundStyle(.white)
     }
 }
 
@@ -31,7 +45,7 @@ struct RecipeCard: View {
         recipe: SearchResult(
             id: 0,
             title: "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
-            imageURLString: "https://spoonacular.com/recipeImages/716429-312x231.jpg"
+            image: "https://spoonacular.com/recipeImages/716429-312x231.jpg"
         )
     )
 }
