@@ -28,6 +28,10 @@ enum Tab: String, CaseIterable {
             "star"
         }
     }
+    
+    var identifier: String {
+        "\(rawValue)Tab"
+    }
 }
 
 // MARK: View Builders

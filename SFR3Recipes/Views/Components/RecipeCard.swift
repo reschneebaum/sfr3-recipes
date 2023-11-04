@@ -37,6 +37,8 @@ struct RecipeCard: View {
         )
         .padding(.horizontal)
         .foregroundStyle(.white)
+        .accessibilityElement()
+        .accessibilityIdentifier("recipeCard-\(recipe.id)")
     }
 }
 

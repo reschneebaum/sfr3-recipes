@@ -6,36 +6,96 @@
 //
 
 import XCTest
+@testable import SFR3Recipes
 
 final class SFR3RecipesUITests: XCTestCase {
+    var app: XCUIApplication!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+        app = XCUIApplication()
+        app.launchArguments = ["isRunningUITests"]
         app.launch()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        continueAfterFailure = false
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    func testTabsAndNavigation() throws {
+        let tabBar = app.tabBars["Tab Bar"]
+        let searchTab = tabBar.buttons["Recipe search"]
+        let favoritesTab = tabBar.buttons["My recipes"]
+        
+        XCTAssertTrue(searchTab.waitForExistence(timeout: 2))
+        XCTAssertTrue(favoritesTab.waitForExistence(timeout: 2))
+        
+        XCTAssertTrue(searchTab.isSelected)
+        XCTAssert(app.navigationBars["Recipe search"].exists)
+        
+        favoritesTab.tap()
+        XCTAssertTrue(favoritesTab.isSelected)
+        XCTAssert(app.navigationBars["My recipes"].exists)
+    }
+    
+    func testSearch() throws {
+        let searchField = app.searchFields["Search"]
+        XCTAssertTrue(searchField.waitForExistence(timeout: 2))
+        
+        searchField.tap()
+        searchField.typeText("Test")
+        let searchButton = app.keyboards.buttons["Search"]
+        XCTAssertTrue(searchButton.waitForExistence(timeout: 2))
+        
+        searchButton.tap()
+        
+        let firstRecipeCard = app.buttons["recipeCard-716429"]
+        XCTAssertTrue(firstRecipeCard.waitForExistence(timeout: 2))
+        let secondRecipeCard = app.buttons["recipeCard-715538"]
+        XCTAssertTrue(secondRecipeCard.waitForExistence(timeout: 2))
+        
+        firstRecipeCard.tap()
+        
+        let backButton = app.navigationBars.buttons["Recipe search"]
+        XCTAssertTrue(backButton.waitForExistence(timeout: 2))
+        XCTAssertTrue(app.buttons["Add to favorites"].exists)
+    }
+    
+    func testAddToFavorites() throws {
+        let searchField = app.searchFields["Search"]
+        searchField.tap()
+        searchField.typeText("Test")
+        let searchButton = app.keyboards.buttons["Search"]
+        searchButton.tap()
+        
+        // Go to detail view
+        let recipeCard = app.buttons["recipeCard-716429"]
+        recipeCard.tap()
+        
+        // Add recipe to favorites
+        let favoritesButton = app.buttons["Add to favorites"]
+        XCTAssertTrue(favoritesButton.exists)
+        favoritesButton.tap()
+        
+        // Check that button text is updated
+        let removeButton = app.buttons["Remove favorite"]
+        XCTAssertTrue(removeButton.waitForExistence(timeout: 2))
+        
+        // Go to favorites view
+        let tabBar = app.tabBars["Tab Bar"]
+        let favoritesTab = tabBar.buttons["My recipes"]
+        favoritesTab.tap()
+        
+        // Check that newly added recipe is visible
+        let favoriteRecipeCard = app.buttons["recipeCard-716429"]
+        XCTAssertTrue(favoriteRecipeCard.waitForExistence(timeout: 2))
+        
+        // Go back to search tab
+        let searchTab = tabBar.buttons["Recipe search"]
+        searchTab.tap()
+        
+        // Remove from favorites
+        removeButton.tap()
+        // Go back to favorites tab
+        favoritesTab.tap()
+        // Check that previously added recipe is gone
+        XCTAssertFalse(favoriteRecipeCard.exists)
     }
 }

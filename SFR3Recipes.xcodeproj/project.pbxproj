@@ -43,6 +43,7 @@
 		C4754CBE2AF58783003ACE34 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CBD2AF58783003ACE34 /* Ingredient.swift */; };
 		C4754CC02AF58D32003ACE34 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C4754CBF2AF58D32003ACE34 /* README.md */; };
 		C4754CC22AF6D086003ACE34 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CC12AF6D086003ACE34 /* Tab.swift */; };
+		C4754CC72AF6E985003ACE34 /* SFR3RecipesApp+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CC62AF6E985003ACE34 /* SFR3RecipesApp+Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		C4754CBD2AF58783003ACE34 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		C4754CBF2AF58D32003ACE34 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C4754CC12AF6D086003ACE34 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		C4754CC62AF6E985003ACE34 /* SFR3RecipesApp+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SFR3RecipesApp+Config.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				C4754C492AF310DF003ACE34 /* SFR3RecipesApp.swift */,
+				C4754CC62AF6E985003ACE34 /* SFR3RecipesApp+Config.swift */,
 				C4754C812AF3F448003ACE34 /* Networking */,
 				C4754CAC2AF46222003ACE34 /* Models */,
 				C4754C762AF31192003ACE34 /* Views */,
@@ -460,6 +463,7 @@
 				C4754CA62AF425FC003ACE34 /* RecipeCard.swift in Sources */,
 				C4754C8B2AF3F4D4003ACE34 /* NetworkSession.swift in Sources */,
 				C4754CC22AF6D086003ACE34 /* Tab.swift in Sources */,
+				C4754CC72AF6E985003ACE34 /* SFR3RecipesApp+Config.swift in Sources */,
 				C4754C892AF3F4BA003ACE34 /* NetworkError.swift in Sources */,
 				C4754C7C2AF3136F003ACE34 /* RecipeInfo.swift in Sources */,
 			);
