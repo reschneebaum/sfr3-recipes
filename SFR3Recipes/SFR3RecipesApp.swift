@@ -11,17 +11,24 @@ import SwiftData
 @main
 struct SFR3RecipesApp: App {
     private var sharedModelContainer: ModelContainer = {
-        let schema = Schema([Recipe.self])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: Self.isRunningUITests)
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
+        if Self.isRunningUITests || Self.isRunningInXcodePreview {
+            guard let mockContainer = MockStorage.modelContainer else {
+                fatalError("Cound not create mock ModelContainer")
+            }
+            return mockContainer
+        } else {
+            let schema = Schema([Recipe.self])
+            let modelConfiguration = ModelConfiguration(schema: schema)
+            do {
+                return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            } catch {
+                fatalError("Could not create ModelContainer: \(error)")
+            }
         }
     }()
     
     private var networkService: NetworkService = {
-        Self.isRunningUITests ? .init(urlSession: MockNetworkSession()) : .init()
+        Self.isRunningUITests || Self.isRunningInXcodePreview ? .init(urlSession: MockNetworkSession()) : .init()
     }()
 
     var body: some Scene {

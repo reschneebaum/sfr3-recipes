@@ -44,6 +44,9 @@
 		C4754CC02AF58D32003ACE34 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C4754CBF2AF58D32003ACE34 /* README.md */; };
 		C4754CC22AF6D086003ACE34 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CC12AF6D086003ACE34 /* Tab.swift */; };
 		C4754CC72AF6E985003ACE34 /* SFR3RecipesApp+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CC62AF6E985003ACE34 /* SFR3RecipesApp+Config.swift */; };
+		C4754CC92AF7288D003ACE34 /* MockStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CC82AF7288D003ACE34 /* MockStorage.swift */; };
+		C4754CCB2AF73B8D003ACE34 /* DetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CCA2AF73B8D003ACE34 /* DetailViewModelTests.swift */; };
+		C4754CCD2AF73BD6003ACE34 /* RecipeStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CCC2AF73BD6003ACE34 /* RecipeStorageTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +107,9 @@
 		C4754CBF2AF58D32003ACE34 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C4754CC12AF6D086003ACE34 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		C4754CC62AF6E985003ACE34 /* SFR3RecipesApp+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SFR3RecipesApp+Config.swift"; sourceTree = "<group>"; };
+		C4754CC82AF7288D003ACE34 /* MockStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorage.swift; sourceTree = "<group>"; };
+		C4754CCA2AF73B8D003ACE34 /* DetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTests.swift; sourceTree = "<group>"; };
+		C4754CCC2AF73BD6003ACE34 /* RecipeStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStorageTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +185,8 @@
 			children = (
 				C4754C5C2AF310E4003ACE34 /* NetworkServiceTests.swift */,
 				C4754CBB2AF57725003ACE34 /* SearchViewModelTests.swift */,
+				C4754CCA2AF73B8D003ACE34 /* DetailViewModelTests.swift */,
+				C4754CCC2AF73BD6003ACE34 /* RecipeStorageTests.swift */,
 			);
 			path = SFR3RecipesTests;
 			sourceTree = "<group>";
@@ -243,6 +251,7 @@
 			children = (
 				C4754C772AF311AF003ACE34 /* Recipe.swift */,
 				C4754CAD2AF462FC003ACE34 /* StorageError.swift */,
+				C4754CC82AF7288D003ACE34 /* MockStorage.swift */,
 			);
 			path = LocalStorage;
 			sourceTree = "<group>";
@@ -465,6 +474,7 @@
 				C4754CC22AF6D086003ACE34 /* Tab.swift in Sources */,
 				C4754CC72AF6E985003ACE34 /* SFR3RecipesApp+Config.swift in Sources */,
 				C4754C892AF3F4BA003ACE34 /* NetworkError.swift in Sources */,
+				C4754CC92AF7288D003ACE34 /* MockStorage.swift in Sources */,
 				C4754C7C2AF3136F003ACE34 /* RecipeInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +485,8 @@
 			files = (
 				C4754CBC2AF57725003ACE34 /* SearchViewModelTests.swift in Sources */,
 				C4754C5D2AF310E4003ACE34 /* NetworkServiceTests.swift in Sources */,
+				C4754CCB2AF73B8D003ACE34 /* DetailViewModelTests.swift in Sources */,
+				C4754CCD2AF73BD6003ACE34 /* RecipeStorageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

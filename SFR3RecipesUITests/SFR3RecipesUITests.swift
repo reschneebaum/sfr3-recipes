@@ -6,7 +6,6 @@
 //
 
 import XCTest
-@testable import SFR3Recipes
 
 final class SFR3RecipesUITests: XCTestCase {
     var app: XCUIApplication!
