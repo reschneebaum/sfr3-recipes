@@ -27,8 +27,8 @@ The app more or less follows the MVVM pattern, with one notable exception due to
   - note, though, that this does make unit testing local storage more complicated than it would be otherwise
 
 ## Future improvements
-  1. add UITests
-  2. add unit test coverage for SwiftData handling
+  1. ~add UITests~
+  2. ~add unit test coverage for SwiftData handling~
   3. add filtering + sorting
   4. cache images and use custom caching image view rather than relying on `AsyncImage` and redownloading images constantly
   5. break Networking/Core into its own Swift package
