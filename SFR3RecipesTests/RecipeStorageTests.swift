@@ -11,24 +11,7 @@ import SwiftData
 
 final class RecipeStorageTests: XCTestCase {
     var context: ModelContext!
-    private lazy var testIngredient = Ingredient(id: 0, amount: 2, name: "2 Tbsp", original: "2 Tbsp test ingredient", unit: "Tbsp")
-    private lazy var newRecipe = Recipe(
-        info: .init(
-            id: 1,
-            title: "Test Recipe",
-            image: "https://foo.bar",
-            servings: 2,
-            readyInMinutes: 30,
-            sourceName: "Test Source",
-            sourceUrl: "https://foo.bar",
-            spoonacularSourceUrl: "https://foo.bar",
-            cuisines: [.american, .asian, .chinese],
-            instructions: "Test instructions",
-            dishTypes: [.main],
-            summary: "Test summary",
-            extendedIngredients: [testIngredient]
-        )
-    )
+    private lazy var newRecipe = MockData.recipe
     
     @MainActor
     override func setUpWithError() throws {
