@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 enum MockStorage {
-    static var modelContainer = try? ModelContainer(
+    static let modelContainer = try? ModelContainer(
         for: Recipe.self,
         configurations: .init(isStoredInMemoryOnly: true)
     )

@@ -12,7 +12,6 @@
 		C4754C532AF310E4003ACE34 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4754C522AF310E4003ACE34 /* Preview Assets.xcassets */; };
 		C4754C5D2AF310E4003ACE34 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754C5C2AF310E4003ACE34 /* NetworkServiceTests.swift */; };
 		C4754C672AF310E4003ACE34 /* SFR3RecipesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754C662AF310E4003ACE34 /* SFR3RecipesUITests.swift */; };
-		C4754C692AF310E4003ACE34 /* SFR3RecipesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754C682AF310E4003ACE34 /* SFR3RecipesUITestsLaunchTests.swift */; };
 		C4754C782AF311AF003ACE34 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754C772AF311AF003ACE34 /* Recipe.swift */; };
 		C4754C7A2AF311D9003ACE34 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754C792AF311D9003ACE34 /* SearchResult.swift */; };
 		C4754C7C2AF3136F003ACE34 /* RecipeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754C7B2AF3136F003ACE34 /* RecipeInfo.swift */; };
@@ -76,7 +75,6 @@
 		C4754C5C2AF310E4003ACE34 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		C4754C622AF310E4003ACE34 /* SFR3RecipesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SFR3RecipesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4754C662AF310E4003ACE34 /* SFR3RecipesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFR3RecipesUITests.swift; sourceTree = "<group>"; };
-		C4754C682AF310E4003ACE34 /* SFR3RecipesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFR3RecipesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C4754C772AF311AF003ACE34 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		C4754C792AF311D9003ACE34 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		C4754C7B2AF3136F003ACE34 /* RecipeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInfo.swift; sourceTree = "<group>"; };
@@ -168,6 +166,7 @@
 				C4754C812AF3F448003ACE34 /* Networking */,
 				C4754CAC2AF46222003ACE34 /* Models */,
 				C4754C762AF31192003ACE34 /* Views */,
+				C4754C9F2AF3FFAA003ACE34 /* Mocks */,
 				C4754C4F2AF310E4003ACE34 /* Assets.xcassets */,
 				C4754C512AF310E4003ACE34 /* Preview Content */,
 			);
@@ -186,9 +185,9 @@
 			isa = PBXGroup;
 			children = (
 				C4754C5C2AF310E4003ACE34 /* NetworkServiceTests.swift */,
+				C4754CCC2AF73BD6003ACE34 /* RecipeStorageTests.swift */,
 				C4754CBB2AF57725003ACE34 /* SearchViewModelTests.swift */,
 				C4754CCA2AF73B8D003ACE34 /* DetailViewModelTests.swift */,
-				C4754CCC2AF73BD6003ACE34 /* RecipeStorageTests.swift */,
 			);
 			path = SFR3RecipesTests;
 			sourceTree = "<group>";
@@ -197,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				C4754C662AF310E4003ACE34 /* SFR3RecipesUITests.swift */,
-				C4754C682AF310E4003ACE34 /* SFR3RecipesUITestsLaunchTests.swift */,
 			);
 			path = SFR3RecipesUITests;
 			sourceTree = "<group>";
@@ -220,7 +218,6 @@
 				C4754C8C2AF3F50C003ACE34 /* Core */,
 				C4754C8D2AF3F51F003ACE34 /* SpoonacularEndpoint.swift */,
 				C4754C8F2AF3F6B4003ACE34 /* NetworkService.swift */,
-				C4754C9F2AF3FFAA003ACE34 /* Mocks */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -243,6 +240,7 @@
 				C4754C9B2AF3FDF1003ACE34 /* MockNetworkSession.swift */,
 				C4754CB22AF567E6003ACE34 /* MockFailingNetworkSession.swift */,
 				C4754CCE2AF97B42003ACE34 /* MockData.swift */,
+				C4754CC82AF7288D003ACE34 /* MockStorage.swift */,
 				C4754C9D2AF3FF9B003ACE34 /* recipe-search.json */,
 				C4754C7D2AF313D6003ACE34 /* recipe-info.json */,
 			);
@@ -254,7 +252,6 @@
 			children = (
 				C4754C772AF311AF003ACE34 /* Recipe.swift */,
 				C4754CAD2AF462FC003ACE34 /* StorageError.swift */,
-				C4754CC82AF7288D003ACE34 /* MockStorage.swift */,
 			);
 			path = LocalStorage;
 			sourceTree = "<group>";
@@ -498,7 +495,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4754C692AF310E4003ACE34 /* SFR3RecipesUITestsLaunchTests.swift in Sources */,
 				C4754C672AF310E4003ACE34 /* SFR3RecipesUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -102,11 +102,7 @@ private extension DetailView {
 #Preview {
     NavigationStack {
         DetailView(
-            recipe: SearchResult(
-                id: 0,
-                title: "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
-                image: "https://spoonacular.com/recipeImages/716429-312x231.jpg"
-            ),
+            recipe: MockData.previewSearchResult,
             networkService: .init(urlSession: MockNetworkSession())
         )
     }

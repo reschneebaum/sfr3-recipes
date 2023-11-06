@@ -43,11 +43,5 @@ struct RecipeCard: View {
 }
 
 #Preview {
-    RecipeCard(
-        recipe: SearchResult(
-            id: 0,
-            title: "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
-            image: "https://spoonacular.com/recipeImages/716429-312x231.jpg"
-        )
-    )
+    RecipeCard(recipe: MockData.previewSearchResult)
 }
