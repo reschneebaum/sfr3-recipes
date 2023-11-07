@@ -45,7 +45,6 @@
 		C4754CC72AF6E985003ACE34 /* SFR3RecipesApp+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CC62AF6E985003ACE34 /* SFR3RecipesApp+Config.swift */; };
 		C4754CC92AF7288D003ACE34 /* MockStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CC82AF7288D003ACE34 /* MockStorage.swift */; };
 		C4754CCB2AF73B8D003ACE34 /* DetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CCA2AF73B8D003ACE34 /* DetailViewModelTests.swift */; };
-		C4754CCD2AF73BD6003ACE34 /* RecipeStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CCC2AF73BD6003ACE34 /* RecipeStorageTests.swift */; };
 		C4754CCF2AF97B42003ACE34 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4754CCE2AF97B42003ACE34 /* MockData.swift */; };
 /* End PBXBuildFile section */
 
@@ -108,7 +107,6 @@
 		C4754CC62AF6E985003ACE34 /* SFR3RecipesApp+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SFR3RecipesApp+Config.swift"; sourceTree = "<group>"; };
 		C4754CC82AF7288D003ACE34 /* MockStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorage.swift; sourceTree = "<group>"; };
 		C4754CCA2AF73B8D003ACE34 /* DetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTests.swift; sourceTree = "<group>"; };
-		C4754CCC2AF73BD6003ACE34 /* RecipeStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStorageTests.swift; sourceTree = "<group>"; };
 		C4754CCE2AF97B42003ACE34 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				C4754C5C2AF310E4003ACE34 /* NetworkServiceTests.swift */,
-				C4754CCC2AF73BD6003ACE34 /* RecipeStorageTests.swift */,
 				C4754CBB2AF57725003ACE34 /* SearchViewModelTests.swift */,
 				C4754CCA2AF73B8D003ACE34 /* DetailViewModelTests.swift */,
 			);
@@ -487,7 +484,6 @@
 				C4754CBC2AF57725003ACE34 /* SearchViewModelTests.swift in Sources */,
 				C4754C5D2AF310E4003ACE34 /* NetworkServiceTests.swift in Sources */,
 				C4754CCB2AF73B8D003ACE34 /* DetailViewModelTests.swift in Sources */,
-				C4754CCD2AF73BD6003ACE34 /* RecipeStorageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

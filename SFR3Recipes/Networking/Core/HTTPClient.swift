@@ -25,7 +25,6 @@ public extension HTTPClient {
         }
         
         guard 200..<300 ~= httpResponse.statusCode else {
-            // TODO: Handle different error response codes
             throw NetworkError.requestFailure(httpResponse.statusCode)
         }
         

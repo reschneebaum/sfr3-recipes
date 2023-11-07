@@ -8,6 +8,10 @@
 import Foundation
 
 extension SFR3RecipesApp {
+    static var shouldUseMocks: Bool {
+        isRunningUITests || isRunningInXcodePreview || isRunningUnitTests
+    }
+    
     static let isRunningUITests: Bool = {
         ProcessInfo.processInfo.arguments.contains(Config.isUITest.rawValue)
     }()
@@ -21,8 +25,17 @@ extension SFR3RecipesApp {
         #endif
     }()
     
-    enum Config: String {
+    static var isRunningUnitTests: Bool {
+        #if DEBUG
+            ProcessInfo.processInfo.environment[Config.isUnitTest.rawValue] != nil
+        #else
+            false
+        #endif
+    }
+    
+    private enum Config: String {
         case isUITest = "isRunningUITests"
+        case isUnitTest = "XCTestConfigurationFilePath"
         case isPreview = "XCODE_RUNNING_FOR_PREVIEWS"
     }
 }

@@ -11,7 +11,7 @@ import SwiftData
 @main
 struct SFR3RecipesApp: App {
     private var sharedModelContainer: ModelContainer = {
-        if Self.isRunningUITests || Self.isRunningInXcodePreview {
+        if Self.shouldUseMocks {
             guard let mockContainer = MockStorage.modelContainer else {
                 fatalError("Cound not create mock ModelContainer")
             }
@@ -28,7 +28,7 @@ struct SFR3RecipesApp: App {
     }()
     
     private var networkService: NetworkService = {
-        Self.isRunningUITests || Self.isRunningInXcodePreview ? .init(urlSession: MockNetworkSession()) : .init()
+        Self.shouldUseMocks ? .init(urlSession: MockNetworkSession()) : .init()
     }()
 
     var body: some Scene {
